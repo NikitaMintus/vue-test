@@ -1,6 +1,9 @@
 let db = require('@/db/db.json');
 let dataParcer = require('@/js/data-parcer.js');
 let mathjs = require('mathjs');
+var jsonfile = require("jsonfile")
+
+var jsonData = {};
 
 function getData() {
   var areas = Object.keys(db);
@@ -25,10 +28,46 @@ function getData() {
       var normalizedArray = normalize(rowData[key]);
       normalizedData[curEnergyType][key] = makeKeyPairObj(areas, normalizedArray);
     }
-    console.dir(curData);
-    console.dir(normalizedData);
-    console.dir(areas);
-  })
+
+    writeNormalizeToJson(normalizedData, jsonData)
+  });
+  db.normalizedData = jsonData;
+}
+
+function writeNormalizeToJson(normalizedData, jsonData) {
+  var typeEnergyKey = Object.keys(normalizedData)[0];
+  var criteriesObject = normalizedData[typeEnergyKey];
+  var areasObject, value;
+
+  for (var criteriaType in criteriesObject) {
+    areasObject = criteriesObject[criteriaType];
+    for (var curAreaKey in areasObject) {
+      value = areasObject[curAreaKey];
+      setJsonStructure(jsonData, curAreaKey, typeEnergyKey, criteriaType, value);
+    }
+  }
+}
+
+function setJsonStructure(jsonData, areaKey, typeEnergyKey, criteriaType, value) {
+  if(jsonData.hasOwnProperty(areaKey)) {
+    if(jsonData[areaKey].hasOwnProperty(typeEnergyKey)) {
+      jsonData[areaKey][typeEnergyKey][criteriaType] = value;
+    } else {
+      jsonData[areaKey][typeEnergyKey] = {
+        'type': typeEnergyKey,
+        'area': areaKey,
+        [criteriaType]: value
+      }
+    }
+  } else {
+    jsonData[areaKey] = {
+      [typeEnergyKey]: {
+        'type': typeEnergyKey,
+        'area': areaKey,
+        [criteriaType]: value
+      }
+    }
+  }
 }
 
 /*
@@ -52,4 +91,4 @@ function normalize(data) {
   });
 }
 
-export {getData}
+export {getData, jsonData}

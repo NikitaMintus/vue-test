@@ -12,6 +12,7 @@
                 </select>
             </form>
             <table-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery" :table-name="areaSelected"></table-grid>
+            <table-grid :data="gridDataNormalized" :columns="gridColumns" :filter-key="searchQuery" :table-name="areaSelected"></table-grid>
         </div>
     </div>
 </template>
@@ -42,10 +43,19 @@ export default {
         var arrData = [currentData.sun, currentData.hydro, currentData.geothermal, currentData.land];
       }
       return arrData;
+    },
+    gridDataNormalized: function () {
+      var arrData = [];
+      if(this.areaSelected !== '') {
+        var currentData = db.normalizedData[this.areaSelected];
+        var arrData = [currentData.sun, currentData.hydro, currentData.geothermal, currentData.land];
+      }
+      return arrData;
     }
   },
   created: function () {
     normalize.getData();
+    console.dir(db);
   }
 }
 </script>
