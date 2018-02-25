@@ -14,9 +14,27 @@
             <table-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery" :table-name="areaSelected"></table-grid>
             <table-grid :data="gridDataNormalized" :columns="gridColumns" :filter-key="searchQuery" :table-name="areaSelected"></table-grid>
             <br/>
-            <div class="result-laplassa">
-                <h1 class="header-method"> Method Laplassa</h1>
-                Result Laplassa =  <strong>{{laplassa.energy}}</strong> with value <strong>{{laplassa.value}}</strong>
+            <div class="columns">
+                <div class="column">
+                    <div class="result-laplassa result-container">
+                        <h1 class="header-method"> Method Laplassa</h1>
+                        Result Laplassa =  <strong>{{laplassa.energy}}</strong> with value <strong>{{laplassa.value}}</strong>
+                    </div>
+                    <div class="result-valda result-container">
+                        <h1 class="header-method"> Method Valda</h1>
+                        Result Valda =  <strong>{{valda.energy}}</strong> with value <strong>{{valda.value}}</strong>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="result-hurvitsa result-container">
+                        <h1 class="header-method"> Method Hurvitsa</h1>
+                        Result Hurvitsa =  <strong>{{hurvitsa.energy}}</strong> with value <strong>{{hurvitsa.value}}</strong>
+                    </div>
+                    <div class="result-sevidge result-container">
+                        <h1 class="header-method"> Method Sevidge</h1>
+                        Result Sevidge =  <strong>{{sevidge.energy}}</strong> with value <strong>{{sevidge.value}}</strong>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -35,6 +53,18 @@ export default {
       gridColumns: ['type', 'general', 'technical', 'economical'],
       areaSelected: '',
       laplassa: {
+        energy: '',
+        value: ''
+      },
+      valda: {
+        energy: '',
+        value: ''
+      },
+      hurvitsa: {
+        energy: '',
+        value: ''
+      },
+      sevidge: {
         energy: '',
         value: ''
       }
@@ -73,6 +103,18 @@ export default {
       var laplassaResult = methods.laplass(this.areaSelected);
       this.laplassa.energy = laplassaResult.energy;
       this.laplassa.value = laplassaResult.value;
+
+      var valdaResult = methods.valda(this.areaSelected);
+      this.valda.energy = valdaResult.energy;
+      this.valda.value = valdaResult.value;
+
+      var hurvitsaResult = methods.hurvitsa(this.areaSelected, 0.5); //alpha
+      this.hurvitsa.energy = hurvitsaResult.energy;
+      this.hurvitsa.value = hurvitsaResult.value;
+
+      var sevidgeResult = methods.sevidge(this.areaSelected);
+      this.sevidge.energy = sevidgeResult.energy;
+      this.sevidge.value = sevidgeResult.value;
     }
   }
 }
@@ -138,7 +180,7 @@ export default {
         border-right: 4px solid transparent;
         border-top: 4px solid #fff;
     }
-    .result-laplassa {
+    .result-container {
         margin: 30px 0;
     }
     .header-method {
