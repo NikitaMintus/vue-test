@@ -1,0 +1,25 @@
+{
+    "sun" : {
+      "vinnitsa": {
+        "general": 30.8,
+        "technical": 14.8,
+        "economical": 2.3
+      }
+    },
+    "hydro": {
+      "general": 360,
+      "technical": 238,
+      "economical": 108
+    },
+    "geothermal": {
+      "general": 360,
+      "technical": 238,
+      "economical": 108
+    },
+    "land": {
+      "general": 4731,
+      "technical": 3379,
+      "economical": 513
+    }
+  }
+}

@@ -3,10 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import MathJs from 'mathjs';
 import 'bulma/css/bulma.css'
 import './styles/main.scss'
 
-Vue.config.productionTip = false
+// var math = require('mathjs');
+
+Vue.config.productionTip = false;
+
+// Vue.use(MathJs)
 
 /* eslint-disable no-new */
 new Vue({

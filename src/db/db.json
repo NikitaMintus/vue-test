@@ -1,0 +1,122 @@
+{
+  "vinnitsa": {
+    "sun" : {
+      "type": "sun",
+      "area": "vinnitsa",
+      "general": 30.8,
+      "technical": 14.8,
+      "economical": 2.3
+    },
+    "hydro": {
+      "type": "hydro",
+      "area": "vinnitsa",
+      "general": 360,
+      "technical": 238,
+      "economical": 108
+    },
+    "geothermal": {
+      "type": "geothermal",
+      "area": "vinnitsa",
+      "general": 360,
+      "technical": 238,
+      "economical": 108
+    },
+    "land": {
+      "type": "land",
+      "area": "vinnitsa",
+      "general": 4731,
+      "technical": 3379,
+      "economical": 513
+    }
+  },
+  "kiev": {
+    "sun" : {
+      "type": "sun",
+      "area": "kiev",
+      "general": 31.5,
+      "technical": 65,
+      "economical": 23
+    },
+    "hydro": {
+      "type": "hydro",
+      "area": "kiev",
+      "general": 343,
+      "technical": 232,
+      "economical": 152
+    },
+    "geothermal": {
+      "type": "geothermal",
+      "area": "kiev",
+      "general": 390,
+      "technical": 224,
+      "economical": 154
+    },
+    "land": {
+      "type": "land",
+      "area": "kiev",
+      "general": 4634,
+      "technical": 3569,
+      "economical": 623
+    }
+  },
+  "poltava": {
+    "sun" : {
+      "type": "sun",
+      "area": "poltava",
+      "general": 31.9,
+      "technical": 34.9,
+      "economical": 4.3
+    },
+    "hydro": {
+      "type": "hydro",
+      "area": "poltava",
+      "general": 242,
+      "technical": 545,
+      "economical": 363
+    },
+    "geothermal": {
+      "type": "geothermal",
+      "area": "poltava",
+      "general": 346,
+      "technical": 453,
+      "economical": 653
+    },
+    "land": {
+      "type": "land",
+      "area": "poltava",
+      "general": 5342,
+      "technical": 8563,
+      "economical": 642
+    }
+  },
+  "donetsk": {
+    "sun" : {
+      "type": "sun",
+      "area": "donetsk",
+      "general": 33,
+      "technical": 96.5,
+      "economical": 7.5
+    },
+    "hydro": {
+      "type": "hydro",
+      "area": "donetsk",
+      "general": 456,
+      "technical": 453,
+      "economical": 345
+    },
+    "geothermal": {
+      "type": "geothermal",
+      "area": "donetsk",
+      "general": 635,
+      "technical": 456,
+      "economical": 645
+    },
+    "land": {
+      "type": "land",
+      "area": "donetsk",
+      "general": 6453,
+      "technical": 9674,
+      "economical": 453
+    }
+  }
+}

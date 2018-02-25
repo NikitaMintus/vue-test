@@ -2,13 +2,17 @@
 <div class="counter-component">
   <h1 class="title">Counter!</h1>
   <div class="box content text-centered">
-    <h2 class="title is-1">{{ count }}</h2>
-    <a class="button is-danger" v-on:click="incrementCount">Count Up</a>
+    <h2 class="title is-1">{{ matrix }}</h2>
+    <a class="button is-danger" v-on:click="calculateMatrix">Count Up</a>
   </div>
 
   <h1 class="title">Crazy buttons</h1>
   <a class="button is-info is-crazy" :style="buttonOffsets" v-on:mouseenter="changePosition">
     Catch me
+  </a>
+
+  <a class="button is-info is-crazy"  v-on:click="dataTest">
+    Test db
   </a>
 
   <article class="message" v-bind:class="accordionClasses">
@@ -27,11 +31,21 @@
 </template>
 
 <script>
+
+
+import * as MathJs from "mathjs";
+// import * as matrixLib from '../js/matrix.js';
+var matrixLib = require('@/js/matrix.js');
+var parcer = require('@/js/data-parcer.js');
+
+
+
 export default {
   data() {
     return {
       count: 0,
       isOpen: true,
+      matrix: 0,
       buttonOffsets: {
         top: 0,
         left: 0
@@ -43,6 +57,9 @@ export default {
     incrementCount: function () {
       this.count += 1;
     },
+    dataTest: function () {
+      parcer.parceDb();
+    },
     changePosition: function () {
       this.buttonOffsets = {
         top: `${Math.random() * window.innerHeight / 10}px`,
@@ -51,6 +68,10 @@ export default {
     },
     toggleAccordion: function () {
       this.isOpen = !this.isOpen;
+    },
+    calculateMatrix: function () {
+      this.matrix = MathJs.min(9, 3, 3);
+     // this.matrix = matrixLib.calculateMatrix();
     }
   },
   computed: {
@@ -63,6 +84,9 @@ export default {
     }
   }
 }
+
+// var math = require('mathjs');
+
 </script>
 
 <style lang="scss">
