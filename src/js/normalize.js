@@ -32,6 +32,7 @@ function getData() {
     writeNormalizeToJson(normalizedData, jsonData)
   });
   db.normalizedData = jsonData;
+  db.energyTypes = energyTypes;
 }
 
 function writeNormalizeToJson(normalizedData, jsonData) {
@@ -91,4 +92,4 @@ function normalize(data) {
   });
 }
 
-export {getData, jsonData}
+export {getData, jsonData, makeKeyPairObj}
